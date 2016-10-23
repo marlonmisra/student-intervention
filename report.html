@@ -225,7 +225,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -277,14 +277,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">])</span>
@@ -293,7 +293,7 @@ div#notebook {
 <span class="n">n_failed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">])</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_passed</span> <span class="o">+</span> <span class="n">n_failed</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_passed</span> <span class="o">+</span> <span class="n">n_failed</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -314,10 +314,10 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 67.00%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -340,7 +340,7 @@ Graduation rate of the class: 67.00%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -422,7 +422,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -493,14 +493,14 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
 <span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
 <span class="c1"># TODO: Shuffle and split the dataset into the number of training and testing points above</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.24</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.24</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># Show the results of the split</span>
 <span class="k">print</span> <span class="s2">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -609,7 +609,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -684,7 +684,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -693,34 +693,21 @@ Testing set has 95 samples.
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 
 <span class="c1"># TODO: Initialize the three models</span>
-<span class="n">clf_A</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">clf_A</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">clf_B</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="n">clf_C</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
+<span class="n">clf_C</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 
-<span class="c1"># TODO: Set up the training set sizes</span>
-<span class="n">X_train_100</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
-<span class="n">y_train_100</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+<span class="c1"># loop thru models, then thru train sizes</span>
+<span class="k">for</span> <span class="n">clf</span> <span class="ow">in</span> <span class="p">[</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">clf_B</span><span class="p">,</span> <span class="n">clf_C</span><span class="p">]:</span>
 
-<span class="n">X_train_200</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[:</span><span class="mi">200</span><span class="p">]</span>
-<span class="n">y_train_200</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">200</span><span class="p">]</span>
+    <span class="c1"># show the estimator type</span>
+    <span class="k">print</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">{}: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
 
-<span class="n">X_train_300</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">]</span>
-<span class="n">y_train_300</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">300</span><span class="p">]</span>
+    <span class="c1"># loop thru training sizes</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]:</span>
 
-<span class="c1"># TODO: Execute the &#39;train_predict&#39; function for each classifier and each training set size</span>
-<span class="c1"># train_predict(clf, X_train, y_train, X_test, y_test)</span>
-
-<span class="n">dt_100</span> <span class="o">=</span> <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">dt_200</span> <span class="o">=</span> <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">dt_300</span> <span class="o">=</span> <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;-----------------------------&quot;</span>
-<span class="n">nb_100</span> <span class="o">=</span> <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">nb_200</span> <span class="o">=</span> <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">nb_300</span> <span class="o">=</span> <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_B</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="k">print</span> <span class="s2">&quot;--------------------------------&quot;</span>
-<span class="n">svm_100</span> <span class="o">=</span> <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">svm_200</span> <span class="o">=</span> <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">svm_300</span> <span class="o">=</span> <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+        <span class="c1"># create training data from first 100, then 200, then 300 points</span>
+        <span class="n">train_predict</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -733,62 +720,69 @@ Testing set has 95 samples.
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training a DecisionTreeClassifier using a training set size of 100. . .
+<pre>
+DecisionTreeClassifier: 
+
+Training a DecisionTreeClassifier using a training set size of 100. . .
 Trained model in 0.0012 seconds
 Made predictions in 0.0001 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0002 seconds.
-F1 score for test set: 0.7119.
+Made predictions in 0.0001 seconds.
+F1 score for test set: 0.6154.
 Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0013 seconds
-Made predictions in 0.0002 seconds.
+Trained model in 0.0012 seconds
+Made predictions in 0.0001 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0001 seconds.
-F1 score for test set: 0.7132.
+F1 score for test set: 0.7424.
 Training a DecisionTreeClassifier using a training set size of 300. . .
-Trained model in 0.0019 seconds
+Trained model in 0.0017 seconds
 Made predictions in 0.0001 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0001 seconds.
-F1 score for test set: 0.7227.
------------------------------
+F1 score for test set: 0.6452.
+
+GaussianNB: 
+
 Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0004 seconds
-Made predictions in 0.0003 seconds.
-F1 score for training set: 0.8550.
+Trained model in 0.0005 seconds
 Made predictions in 0.0002 seconds.
-F1 score for test set: 0.7481.
+F1 score for training set: 0.8467.
+Made predictions in 0.0002 seconds.
+F1 score for test set: 0.8029.
 Training a GaussianNB using a training set size of 200. . .
 Trained model in 0.0003 seconds
-Made predictions in 0.0004 seconds.
-F1 score for training set: 0.8321.
+Made predictions in 0.0003 seconds.
+F1 score for training set: 0.8406.
 Made predictions in 0.0002 seconds.
-F1 score for test set: 0.7132.
+F1 score for test set: 0.7244.
 Training a GaussianNB using a training set size of 300. . .
 Trained model in 0.0004 seconds
-Made predictions in 0.0009 seconds.
-F1 score for training set: 0.8088.
 Made predictions in 0.0003 seconds.
-F1 score for test set: 0.7500.
---------------------------------
+F1 score for training set: 0.8038.
+Made predictions in 0.0002 seconds.
+F1 score for test set: 0.7634.
+
+SVC: 
+
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0029 seconds
+Trained model in 0.0010 seconds
 Made predictions in 0.0007 seconds.
-F1 score for training set: 0.8591.
-Made predictions in 0.0007 seconds.
-F1 score for test set: 0.7838.
-Training a SVC using a training set size of 200. . .
-Trained model in 0.0030 seconds
-Made predictions in 0.0022 seconds.
-F1 score for training set: 0.8693.
+F1 score for training set: 0.8777.
 Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7755.
+F1 score for test set: 0.7746.
+Training a SVC using a training set size of 200. . .
+Trained model in 0.0041 seconds
+Made predictions in 0.0021 seconds.
+F1 score for training set: 0.8679.
+Made predictions in 0.0011 seconds.
+F1 score for test set: 0.7815.
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0061 seconds
-Made predictions in 0.0045 seconds.
-F1 score for training set: 0.8692.
-Made predictions in 0.0014 seconds.
-F1 score for test set: 0.7586.
+Trained model in 0.0066 seconds
+Made predictions in 0.0059 seconds.
+F1 score for training set: 0.8761.
+Made predictions in 0.0016 seconds.
+F1 score for test set: 0.7838.
 </pre>
 </div>
 </div>
@@ -965,9 +959,12 @@ F1 score for test set: 0.7586.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong>
-In layman's terms, SVM's try to maximize margin. The way to think about this is to imagine a hyperplane that separates the linearly-separable data. Margin is the size of the "street" (the width of the area formed by the points closest to the hyperplane). The bigger this street is the better the separation of the data is.</p>
-<p>When it comes to testing, the hyperplane is used to classify the as one of the 2 groups.</p>
+<p><strong>Answer: </strong></p>
+<p>The SVM takes data about previous students (age, gender, family, etc), and uses them to create a function that draws a boundary between the students who passed and those who didn't. The boundary should be drawn so as to maximize the distance between students who passed and those who didn't.</p>
+<p><img src="https://udacity-github-sync-content.s3.amazonaws.com/_imgs/19273/1468014011/optimal-hyperplane.png" alt="SVM"></p>
+<p>Often, though, it's not easy to draw a decision boundary in low dimensions, so the SVM separates the passing and failing students by first taking student data (age, gender, etc.) and using it to create new features that more easily distinguish students who pass from those who fail.</p>
+<p><img src="https://udacity-github-sync-content.s3.amazonaws.com/_imgs/19273/1464624531/1gvce.png" alt="SVM"></p>
+<p>Using this function created with students we already know passed or not, the SVM can look at new students' data and predict whether they should pass or fail, depending on which side of the boundary the new data point is on.</p>
 
 </div>
 </div>
